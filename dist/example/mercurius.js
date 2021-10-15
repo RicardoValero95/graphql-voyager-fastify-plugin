@@ -40,7 +40,7 @@ var fastify_1 = require("fastify");
 var mercurius_1 = require("mercurius");
 // import GraphQLVoyagerFastify from "graphql-voyager-fastify-plugin";
 var index_1 = require("../index");
-var app = fastify_1.default({
+var app = (0, fastify_1.default)({
     logger: {
         level: 'info',
     },
@@ -68,7 +68,6 @@ app.register(index_1.default, {
      * All these are the defaults.
      */
     path: '/voyager',
-    baseUrl: '/voyager/',
-    endpointUrl: '/graphql',
+    endpoint: '/graphql',
 });
 app.listen(3000);

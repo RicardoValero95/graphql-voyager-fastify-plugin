@@ -6,15 +6,14 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.1",
     "@types/node": "^16.0.0",
-    "@types/ws": "^7.4.6",
+    "@types/ws": "^8.2.0",
     "fastify": "^3.18.1",
     "mercurius": "^8.0.0",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "fastify-plugin": "^3.0.0",
-    "fastify-static": "^4.2.2"
+    "fastify-plugin": "^3.0.0"
   },
   "name": "graphql-voyager-fastify-plugin",
   "description": "This is a [**Fastify Plugin**](https://www.fastify.io/docs/master/Plugins/) for hosting an instance of **GraphQL Voyager**, with support for **TypeScript**, and tested for **Fastify v3**.",
@@ -31,6 +30,9 @@
     "fastify"
   ],
   "author": "Ricardo Valero",
+  "contributors": [
+    "Olivier Refalo"
+  ],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/RicardoValero95/graphql-voyager-fastify-plugin/issues"

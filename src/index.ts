@@ -1,24 +1,9 @@
 import type { FastifyPluginCallback } from 'fastify'
 import fp from 'fastify-plugin'
-import fastifyStatic from 'fastify-static'
-import renderVoyagerPage, {
-  GraphQLVoyagerRenderOptions,
-} from './graphql-voyager'
+import { RenderVoyagerOptions, renderVoyagerPage } from './render'
 
 export interface GraphQLVoyagerFastifyPluginOptions
-  extends GraphQLVoyagerRenderOptions {
-  /**
-   * URL to set as the server endpoint.
-   *
-   * By default is `/graphql`
-   */
-  endpointUrl?: string
-  /**
-   * URL to be used as a base for relative URLs and hosting needed static files.
-   *
-   * By default is `/voyager/`
-   */
-  baseUrl?: string
+  extends RenderVoyagerOptions {
   /**
    * Path in which GraphQL Voyager will be accesible.
    *
@@ -30,23 +15,17 @@ export interface GraphQLVoyagerFastifyPluginOptions
 const graphqlVoyagerFasitfyPlugin: FastifyPluginCallback<GraphQLVoyagerFastifyPluginOptions> =
   (
     fastify,
-    {
-      path = '/voyager',
-      baseUrl = '/voyager/',
-      endpointUrl = '/graphql',
-      ...renderOptions
-    } = {},
+    { path = '/voyager', endpoint = '/graphql', ...renderOptions } = {},
     done
   ) => {
-    fastify.register(fastifyStatic, {
-      //TODO
-      root: '/dist',
-      prefix: baseUrl,
-    })
+    // fastify.register(fastifyStatic, {
+    //   //TODO
+    //   root: '/dist',
+    //   prefix: baseUrl,
+    // })
 
     const voyagerPage = renderVoyagerPage({
-      baseUrl,
-      endpointUrl,
+      endpoint,
       ...renderOptions,
     })
 

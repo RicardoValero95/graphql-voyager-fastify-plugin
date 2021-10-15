@@ -34,8 +34,7 @@ app.register(GraphQLVoyagerFastify, {
    * All these are the defaults.
    */
   path: '/voyager',
-  baseUrl: '/voyager/',
-  endpointUrl: '/graphql',
+  endpoint: '/graphql',
 })
 
 app.listen(3000)
